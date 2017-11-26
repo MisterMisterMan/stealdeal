@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "540326254950",
+    "firebase_url": "https://stealdeal-f1ea5.firebaseio.com",
+    "project_id": "stealdeal-f1ea5",
+    "storage_bucket": "stealdeal-f1ea5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540326254950:android:62b79a202ef71ec9",
+        "android_client_info": {
+          "package_name": "com.example.stealdeal.stealdeal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540326254950-s68fjqkgsrc0f9umlqovglu39ni8hrno.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.stealdeal.stealdeal",
+            "certificate_hash": "dd6756f3ba189a461d247dc58b0fa0f359f30635"
+          }
+        },
+        {
+          "client_id": "540326254950-lqi2e2o1s4qsclotd4kv85c4hbgln32r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlqvmnoesJN2hRgnOiIhaMBQyBDhBbr1o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540326254950-lqi2e2o1s4qsclotd4kv85c4hbgln32r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
