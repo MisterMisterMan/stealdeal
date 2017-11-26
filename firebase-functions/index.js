@@ -63,7 +63,8 @@ exports.sendMessageNotifications = functions.database.ref('/messages/{pushId}')
         const messageData = event.data; // messageData
 
         console.log("Message Data:", messageData);
-        const userName = messageData.admin.auth().listUsers(1000)
+        const userName = messageData.name;
+        return admin.auth().listUsers(1000)
             .then(function (listUsersResult) {
 
                 const sendingUser = listUsersResult.users.find((userRecord)=>{
