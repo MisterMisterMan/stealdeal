@@ -12,10 +12,10 @@ public class Offer implements Serializable {
 
     private int id;
     private String name;
-    private Location location;
+    private String location;
     private String createdBy;
 
-    public Offer(int id, String name, Location location, String createdBy){
+    public Offer(int id, String name, String location, String createdBy){
         this.id = id;
         this.name = name;
         this.location = location;

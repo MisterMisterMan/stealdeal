@@ -3,6 +3,7 @@ package com.example.stealdeal.stealdeal;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.location.Location;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -79,5 +80,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
+
+    FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            Intent myIntent = new Intent(MainActivity.this, AddOfferActivity.class);
+            // myIntent.putExtra("key", value); //Optional parameters
+            MainActivity.this.startActivity(myIntent);
+            //  Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            //       .setAction("Action", null).show();
+        }
+
+        });
+}
 }
