@@ -22,7 +22,7 @@ public class OfferDetails extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        offer = MainActivity.offerList.get(getIntent().getIntExtra("offerID", 0));
+        offer = MainActivity.offers.get(getIntent().getIntExtra("offerID", 0));
 
         editText.setText(offer.getName());
         

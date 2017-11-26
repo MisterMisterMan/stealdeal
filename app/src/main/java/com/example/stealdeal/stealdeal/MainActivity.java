@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
     private SearchView searchView;
-    public static ArrayList<Offer> offerList;
     public static ArrayList<Offer> offers;
     private MainActivity mainActivity;
 
@@ -48,11 +47,19 @@ public class MainActivity extends AppCompatActivity {
         databaseReference.child("offers").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                offers = new ArrayList<>();
+                MainActivity.offers.clear();
                 for (DataSnapshot offerDataSnapshot : dataSnapshot.getChildren()){
                     Offer offer = offerDataSnapshot.getValue(Offer.class);
-                    offers.add(offer);
+                    MainActivity.offers.add(offer);
+                    Log.d("offers1", offer.getName());
                 }
+                ArrayList<String> values = new ArrayList<>();
+                for (Offer offer : offers){
+                    Log.d("offers", offer.getName());
+                    values.add(offer.getName());
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, R.layout.mainscreenlistview_item, R.id.caption, values);
+                listView.setAdapter(adapter);
             }
 
             @Override
@@ -61,31 +68,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ArrayList<String> values = new ArrayList<>();
         for (Offer offer : offers){
             Log.d("offers", offer.getName());
-        }
-
-        //TODO creat real Offers
-        String[] values = new String[] { "Android List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View"
-        };
-
-        offerList = new ArrayList<Offer>();
-        for(int i = 0; i <= values.length - 1; i++){
-        //    offerList.add(new Offer(i, values[i], new Location(""), "dummy"));
+            values.add(offer.getName());
         }
 
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);#
