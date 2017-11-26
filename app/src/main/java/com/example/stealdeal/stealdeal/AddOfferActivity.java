@@ -40,9 +40,9 @@ public class AddOfferActivity extends AppCompatActivity{
         addbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FriendlyMessage friendlyMessage = new Offer(offerTitle.getText().toString(), offerPrice.getText().toString(),
-                        offerDescription.getText().toString(), distance.getText().);
-                mFirebaseDatabaseReference.child(OFFERS_CHILD).push().setValue(friendlyMessage);
+             //   Offer offer = new Offer(offerTitle.getText().toString(), offerPrice.getText().toString(),
+               //         offerDescription.getText().toString(), distance.getText().toString());
+               // mFirebaseDatabaseReference.child(OFFERS_CHILD).push().setValue(offer);
             }
         });
     }
