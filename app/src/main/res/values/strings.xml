@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">stealdeal</string>
+    <string name="title_activity_offer_details">OfferDetails</string>
 </resources>
