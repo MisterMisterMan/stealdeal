@@ -27,6 +27,10 @@
                </intent-filter>
        </activity>
 
+           <activity
+               android:name=".OfferDetails"
+               android:label="@string/title_activity_offer_details"
+               android:theme="@style/AppTheme.NoActionBar"></activity>
 
            <activity android:name=".SignInActivity" />
 
