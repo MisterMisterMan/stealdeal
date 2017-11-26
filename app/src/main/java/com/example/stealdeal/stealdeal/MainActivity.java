@@ -16,22 +16,53 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
     private SearchView searchView;
     public static ArrayList<Offer> offerList;
+    public static ArrayList<Offer> offers;
     private MainActivity mainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         setContentView(R.layout.activity_main);
         mainActivity = this;
+        offers = new ArrayList<>();
         listView = findViewById(R.id.mainScreenListView);
         searchView = findViewById(R.id.mainScreenSearchView);
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("offers").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                offers = new ArrayList<>();
+                for (DataSnapshot offerDataSnapshot : dataSnapshot.getChildren()){
+                    Offer offer = offerDataSnapshot.getValue(Offer.class);
+                    offers.add(offer);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        for (Offer offer : offers){
+            Log.d("offers", offer.getName());
+        }
 
         //TODO creat real Offers
         String[] values = new String[] { "Android List View",
@@ -53,10 +84,11 @@ public class MainActivity extends AppCompatActivity {
 
         offerList = new ArrayList<Offer>();
         for(int i = 0; i <= values.length - 1; i++){
-            offerList.add(new Offer(i, values[i], new Location(""), "dummy"));
+        //    offerList.add(new Offer(i, values[i], new Location(""), "dummy"));
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);#
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.mainscreenlistview_item, R.id.caption, values);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

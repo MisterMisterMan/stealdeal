@@ -1,0 +1,14 @@
+{
+  "-Id001" : {
+    "expiryDate" : 1511797058685,
+    "id" : 1,
+    "latitudeMax" : 10,
+    "latitudeMin" : 8,
+    "longitudeMax" : 11,
+    "longitudeMin" : 9,
+    "name" : "PS4",
+    "price" : 500,
+    "quantity" : 2,
+    "userName" : "Dominik"
+  }
+}
